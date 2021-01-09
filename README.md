@@ -1,6 +1,6 @@
 # My simple Todo App with Vue.js and Vuex
 
-![vuexlogo](https://scaffoldhub.io/images/techs/vuex.png)
+![thumbnail](/src/assets/screenshort-md.png)
 ```sh
 $ yarn
 $ yarn serve

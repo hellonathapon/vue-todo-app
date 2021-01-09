@@ -1,34 +1,50 @@
 <template>
   <div class="hello">
-    <FormAddTodo/>
+    <AddTodo/>
     
     <div class="todo-list">
       <h1>Todo Lists</h1>
-      <p>Some todo</p>
+      <ul>
+        <li v-for="item in getTodos" :key="item.id">
+          <span>{{ item.text }}</span>
+          <span>Status</span>
+          <b-button variant="outline-danger">Button</b-button>
+        </li>
+      </ul>
     </div>
     
   </div>
 </template>
 
 <script>
-import FormAddTodo from './FormAddTodo.vue'
+import { mapState } from 'vuex'
+import AddTodo from './AddTodo.vue'
 
 export default {
   name: 'HelloWorld',
   components: {
-    FormAddTodo,
+    AddTodo,
   },
   props: {
     msg: String
+  },
+  computed: {
+    ...mapState({
+      getTodos: state => state.todos,
+    })
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  * {
+    list-style: none;
+    text-decoration: none;
+  }
   .hello {
     grid-area: b;
-    min-height: 300vh;
+    /* min-height: 100vh; */
     background: #f8f9fe;
     display: grid;
     grid-template-rows: repeat(12, 1fr);
@@ -42,6 +58,30 @@ export default {
     width: 90%;
     margin: 0 auto;
     border-radius: .375rem;
-    padding: 1rem .8rem;
+  }
+  li {
+    display: flex;
+    padding: .6rem 1.2rem;
+    cursor: pointer;
+    border-bottom: 1px solid #ebeef5;
+  }
+  li:hover {
+    background: #F5F7FA;
+  }
+  li span {
+    text-align: center;
+  }
+  li span:nth-child(1) {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  li span:nth-child(2) {
+    flex: 1;
+  }
+  li span:nth-child(3) {
+    flex: 0.5;
+    background: pink;
   }
 </style>

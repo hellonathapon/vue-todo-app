@@ -4,13 +4,14 @@
     
     <div class="todo-list">
       <h1>Todo Lists</h1>
-      <ul>
+      <ul v-if="getTodos.length">
         <li v-for="item in getTodos" :key="item.id">
           <span>{{ item.text }}</span>
           <span>Status</span>
           <b-button v-on:click="deleteTodo(item.id)" variant="outline-danger">Button</b-button>
         </li>
       </ul>
+      <p v-else>Yay! No Todo left :)</p>
     </div>
     
   </div>

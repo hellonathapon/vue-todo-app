@@ -8,7 +8,7 @@
         <li v-for="item in getTodos" :key="item.id">
           <span>{{ item.text }}</span>
           <span>Status</span>
-          <b-button variant="outline-danger">Button</b-button>
+          <b-button v-on:click="deleteTodo(item.id)" variant="outline-danger">Button</b-button>
         </li>
       </ul>
     </div>
@@ -32,11 +32,15 @@ export default {
     ...mapState({
       getTodos: state => state.todos,
     })
+  },
+  methods: {
+    deleteTodo: function( id ) {
+      return this.$store.dispatch('deleteTodo', id);
+    }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   * {
     list-style: none;

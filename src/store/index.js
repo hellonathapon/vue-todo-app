@@ -19,10 +19,18 @@ export default new Vuex.Store({
       const todo = {...payload, id: generateId}
       state.todos = [...state.todos, todo];
     },
+    DELETE_TODO: ( state, payload ) => {
+      let filterTodo = state.todos.filter(todo => todo.id !== payload);
+      // console.log(filterTodo)
+      state.todos = filterTodo;
+    }
   },
   actions: {
     addTodo: (context, payload) => {
       context.commit('ADD_TODO', payload)
+    },
+    deleteTodo: (context, payload) => {
+      context.commit('DELETE_TODO', payload)
     }
   },
 })

@@ -14,8 +14,8 @@ export default new Vuex.Store({
   },
   mutations: {
     ADD_TODO: (state, payload) => {
-      // increment id from existing todo length
-      let generateId = state.todos.length;
+      // generate Random ID
+      let generateId = Math.random().toString(36).substr(2, 9);
       const todo = {...payload, id: generateId}
       state.todos = [...state.todos, todo];
     },

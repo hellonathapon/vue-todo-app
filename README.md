@@ -1,24 +1,18 @@
-# project-todo-vue
+# My simple Todo App with Vue.js and Vuex
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
+![N|Solid](https://scaffoldhub.io/images/techs/vuex.png)
+```sh
+$ yarn
+$ yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+### Tech
 
-### Lints and fixes files
-```
-yarn lint
-```
+* [Vue.js v2.x] - Simple and powerful Data-driven JS framwork
+* [Vuex 3] - Vue state management
+* [BootstrapVue] - UI library for Bootstrapifying my app 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+   [Vue.js v2.x]: <https://vuejs.org//>
+   [Vuex 3]: <https://github.com/vuejs/vuex/>
+   [BootstrapVue]: <https://bootstrap-vue.org//>

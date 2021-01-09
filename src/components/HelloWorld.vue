@@ -5,10 +5,13 @@
     <div class="todo-list">
       <h1>Todo Lists</h1>
       <ul v-if="getTodos.length">
-        <li v-for="item in getTodos" :key="item.id">
-          <span>{{ item.text }}</span>
-          <span>Status</span>
-          <b-button v-on:click="deleteTodo(item.id)" variant="outline-danger">Button</b-button>
+        <li v-for="item in getTodos" :key="item.id" v-on:click="completeTask( item.id )">
+          <span v-bind:class="{ completed: item.isDone }">{{ item.text }}</span>
+          <span>
+            <span v-if="!item.isDone">Pending</span>
+            <span v-else>Completed</span>
+          </span>
+          <b-button v-on:click="deleteTodo(item.id)" variant="outline-danger">Delete</b-button>
         </li>
       </ul>
       <p v-else>Yay! No Todo left :)</p>
@@ -37,6 +40,9 @@ export default {
   methods: {
     deleteTodo: function( id ) {
       return this.$store.dispatch('deleteTodo', id);
+    },
+    completeTask: function( id ) {
+      return this.$store.dispatch('completeTodo', id);
     }
   }
 }
@@ -64,6 +70,7 @@ export default {
     margin: 0 auto;
     border-radius: .375rem;
   }
+
   li {
     display: flex;
     padding: .6rem 1.2rem;
@@ -85,8 +92,13 @@ export default {
   li span:nth-child(2) {
     flex: 1;
   }
-  li span:nth-child(3) {
+  li button {
     flex: 0.5;
-    background: pink;
+    max-width: 100px;
+    /* background: pink; */
+  }
+  .completed {
+    text-decoration: line-through;
+    color: #2ECD8B;
   }
 </style>

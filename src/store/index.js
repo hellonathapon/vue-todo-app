@@ -23,14 +23,26 @@ export default new Vuex.Store({
       let filterTodo = state.todos.filter(todo => todo.id !== payload);
       // console.log(filterTodo)
       state.todos = filterTodo;
+    },
+    COMPLETE_TODO: (state, payload) => {
+      const markTodoDone = state.todos.map(todo => {
+        if(todo.id === payload) {
+          todo.isDone = !todo.isDone;
+        }
+        return todo;
+      })
+      state.todos = markTodoDone
     }
   },
   actions: {
     addTodo: (context, payload) => {
-      context.commit('ADD_TODO', payload)
+      context.commit('ADD_TODO', payload);
     },
     deleteTodo: (context, payload) => {
-      context.commit('DELETE_TODO', payload)
+      context.commit('DELETE_TODO', payload);
+    },
+    completeTodo: (context, payload) => {
+      context.commit('COMPLETE_TODO', payload);
     }
   },
 })

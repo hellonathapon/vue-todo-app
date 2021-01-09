@@ -1,7 +1,7 @@
 <template>
     <div class="add-todo">
         <b-form-input v-model="textInput" v-on:keyup.enter="addTodo" placeholder="Enter your Todo" class="form" size="lg"></b-form-input>
-        <b-button pill variant="outline-info" v-on:click="addTodo">Button</b-button>
+        <!-- <b-button pill variant="outline-info" v-on:click="addTodo">Button</b-button> -->
     </div>
 </template>
 

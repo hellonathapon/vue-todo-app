@@ -7,6 +7,7 @@
       <ul v-if="getTodos.length">
         <li v-for="item in getTodos" :key="item.id" v-on:click="completeTask( item.id )">
           <span v-bind:class="{ completed: item.isDone }">{{ item.text }}</span>
+          <span>{{ item.date }}</span>
           <span>
             <span v-if="!item.isDone">Pending</span>
             <span v-else>Completed</span>
@@ -57,7 +58,7 @@ export default {
     /* min-height: 100vh; */
     background: #f8f9fe;
     display: grid;
-    grid-template-rows: repeat(12, 1fr);
+    /* grid-template-rows: repeat(12, 1fr); */
     grid-template-areas: "a"
                          "b";
   }
@@ -81,14 +82,17 @@ export default {
   }
   li span {
     text-align: center;
-  }
-  li span:nth-child(1) {
-    flex: 2;
     display: flex;
     align-items: center;
     justify-content: flex-start;
   }
+  li span:nth-child(1) {
+    flex: 2;
+  }
   li span:nth-child(2) {
+    flex: 1;
+  }
+  li span:nth-child(3) {
     flex: 1;
   }
   li button {

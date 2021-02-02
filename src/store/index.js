@@ -6,10 +6,10 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     todos: [
-      { id: 0, text: 'take a photograph', isDone: false },
-      { id: 1, text: 'get uni paper', isDone: false },
-      { id: 2, text: 'buy clothes', isDone: false },
-      { id: 3, text: 'buy ticket', isDone: false },
+      { id: 0, text: 'take a photograph',date: '1/2/21', isDone: false },
+      { id: 1, text: 'get uni paper',date: '1/2/21', isDone: false },
+      { id: 2, text: 'buy clothes',date: '1/2/21', isDone: false },
+      { id: 3, text: 'buy ticket',date: '1/2/21', isDone: false },
     ],
   },
   mutations: {

@@ -54,7 +54,6 @@ export default {
     text-decoration: none;
   }
   .hello {
-    grid-area: b;
     /* min-height: 100vh; */
     background: #f8f9fe;
     display: grid;

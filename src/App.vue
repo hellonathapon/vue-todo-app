@@ -1,18 +1,15 @@
 <template>
   <div id="app">
-    <Sidebar/>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import Sidebar from './components/Sidebar.vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    Sidebar,
     HelloWorld
   }
 }
@@ -31,7 +28,6 @@ export default {
     text-align: center;
     color: #2c3e50;
     display: grid;
-    grid-template-columns: 250px auto;
-    grid-template-areas: "a b";
+    grid-template-columns: 1fr;
   }
 </style>
